@@ -13,8 +13,8 @@ public class Producer {
     private KafkaTemplate<String,String> kafkaTemplate;
 
     public void ProducersendMsg(String str){
-        kafkaTemplate.send("first-topic",str);
-        System.out.println("following message is sending topic first-topic "+ str);
+        kafkaTemplate.send("streamsTopic","streamsTopic",str);
+        System.out.println("following message is sending topic streamsTopic "+ str);
     }
 
 }

@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 public class ConsumerGetMsg {
 
 
-    @KafkaListener(topics="first-topic", groupId = "mygroupId")
+  //  @KafkaListener(topics="first-topic", groupId = "mygroupId")
     public void consumeFromTopic(String msg) {
         System.out.println("Following message reading from topics "+msg);
     }
