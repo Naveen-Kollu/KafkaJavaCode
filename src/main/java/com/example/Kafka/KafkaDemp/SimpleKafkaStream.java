@@ -33,16 +33,15 @@ public class SimpleKafkaStream {
 
         StreamsBuilder streamBuilder =new StreamsBuilder();
         KStream <Object,Object> kstream = streamBuilder.stream("streamsTopic");
-        kstream.
 
-                System.out.println("this is message from Topic"+kstream.toString());
+        System.out.println("this is message from Topic"+kstream.toString());
         System.out.println("this is message from group by key "+kstream.groupByKey());
 
-
+        kstream.foreach((k,v) -> System.out.println("key value is "+ k +"value is "+ v));
 
         Topology topology = streamBuilder.build();
 
-        kstream.foreach((k,v) -> System.out.println("key value is "+ k +"value is "+ v));
+
         logger.info("starting streams");
         KafkaStreams kfStream = new KafkaStreams(topology,prop);
 
